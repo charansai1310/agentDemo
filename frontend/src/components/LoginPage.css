@@ -1,0 +1,130 @@
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  padding: 20px;
+}
+
+.login-container {
+  background-color: var(--bg-secondary);
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: var(--shadow);
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+}
+
+.login-header h1 {
+  color: var(--color-text);
+  margin-bottom: 10px;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.login-header p {
+  color: var(--color-text-secondary);
+  margin-bottom: 30px;
+  font-size: 16px;
+}
+
+.error-message {
+  background-color: var(--color-error);
+  color: white;
+  padding: 12px;
+  border-radius: var(--border-radius);
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.login-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.login-btn {
+  padding: 15px 25px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: var(--border-radius);
+  transition: all 0.3s ease;
+  min-height: 50px;
+}
+
+.customer-btn {
+  background-color: var(--color-user);
+}
+
+.customer-btn:hover:not(:disabled) {
+  background-color: #0066cc;
+  transform: translateY(-2px);
+}
+
+.engineer-btn {
+  background-color: #28a745;
+}
+
+.engineer-btn:hover:not(:disabled) {
+  background-color: #218838;
+  transform: translateY(-2px);
+}
+
+.login-info {
+  text-align: left;
+  background-color: var(--bg-input);
+  padding: 20px;
+  border-radius: var(--border-radius);
+  margin-top: 20px;
+}
+
+.login-info h3 {
+  color: var(--color-text);
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.capabilities {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.capability {
+  color: var(--color-text-secondary);
+}
+
+.capability strong {
+  color: var(--color-text);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.capability ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.capability li {
+  padding: 3px 0;
+  font-size: 14px;
+}
+
+.capability li:before {
+  content: "• ";
+  color: var(--color-user);
+  margin-right: 8px;
+}
+
+@media (max-width: 600px) {
+  .login-container {
+    padding: 20px;
+  }
+  
+  .capabilities {
+    grid-template-columns: 1fr;
+  }
+}
