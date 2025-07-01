@@ -311,9 +311,10 @@ async def lifespan(app: FastAPI):
     yield
     # Shutdown
     if agent_server.runtime:
-        agent_server.runtime.stop()
+        await agent_server.runtime.stop()
     if agent_server.model_client:
         await agent_server.model_client.close()
+
 
 app = FastAPI(
     title="Multi-Agent System API",
@@ -343,13 +344,15 @@ async def engineer_agent_endpoint(request: ChatRequest):
     return await agent_server.process_engineer_request(request)
 
 if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8001))  # Use Render's PORT if available
+    
     print("Starting Agent API Gateway...")
-    print("Swagger UI will be available at: http://localhost:8001/docs")
-    print("ReDoc UI will be available at: http://localhost:8001/redoc")
+    print(f"Swagger UI will be available at: http://localhost:{port}/docs")
+    print(f"ReDoc UI will be available at: http://localhost:{port}/redoc")
     
     uvicorn.run(
-        app, 
-        host="0.0.0.0", 
-        port=8001,
+        app,
+        host="0.0.0.0",
+        port=port,
         log_level="info"
     )
